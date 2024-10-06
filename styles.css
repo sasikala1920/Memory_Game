@@ -1,0 +1,76 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f2f2f2;
+    transition: background-color 0.5s; /* Smooth transition for background changes */
+}
+
+.game-container {
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    gap: 10px;
+    justify-content: center;
+}
+
+.card {
+    width: 100px;
+    height: 100px;
+    background-color: #1e90ff;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    transform: rotateY(180deg);
+    transition: transform 0.5s;
+    overflow: hidden;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+}
+
+.card.flipped {
+    transform: rotateY(0deg);
+    background-color: #ff6347;
+}
+
+.card.flipped img {
+    display: block;
+}
+
+#restart-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Flashing background animation */
+@keyframes flash {
+    0% { background-color: #f2f2f2; }
+    25% { background-color: #ffeb3b; }
+    50% { background-color: #f2f2f2; }
+    75% { background-color: #ffeb3b; }
+    100% { background-color: #f2f2f2; }
+}
+
+body.flash-background {
+    animation: flash 1s ease-in-out infinite;
+}
